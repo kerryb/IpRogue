@@ -15,7 +15,7 @@ class Game
     begin
       @dungeon.render
       update
-      sleep(0.5)
+      sleep(0.1)
     end until finished?
     puts "FIN!"
   end
