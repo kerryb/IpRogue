@@ -13,9 +13,10 @@ class Game
 
   def run
     begin
+      next_dungeon if @dungeon.complete?
       @dungeon.render
       update
-      sleep(0.1)
+      sleep(0.01)
     end until finished?
     puts "FIN!"
   end

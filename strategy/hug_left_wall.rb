@@ -12,18 +12,19 @@ module Strategy
     def play surroundings
       @surroundings = surroundings
       if can_see_target
+        go_to_target
       elsif at_left_turn
         turn_left
       elsif facing_wall
         turn_right
-      else
-        @player.send :"go_#{@direction}"
       end
+      @player.send :"go_#{@direction}"
     end
 
     private
 
     def can_see_target
+      find_target
     end
 
     def facing_wall
@@ -31,7 +32,7 @@ module Strategy
     end
 
     def at_left_turn
-      @surroundings[DIRECTIONS[relative_direction(-1)]][2] != "#"
+      @surroundings[DIRECTIONS[relative_direction(-2)]][2] != "#"
     end
 
     def turn_right
@@ -39,7 +40,15 @@ module Strategy
     end
 
     def turn_left
-      @direction = relative_direction(-1)
+      @direction = relative_direction(-2)
+    end
+
+    def go_to_target
+      @direction = DIRECTIONS.invert[find_target]
+    end
+
+    def find_target
+      @surroundings.index {|s| %w{> &}.include?(s[2])}
     end
 
     def relative_direction offset
