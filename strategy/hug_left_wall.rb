@@ -14,11 +14,13 @@ module Strategy
       if can_see_target
         go_to_target
       elsif at_left_turn
-        turn_left
-      elsif facing_wall
-        turn_right
+        go_left
+      else
+        while facing_wall
+          turn_right
+        end
+        walk
       end
-      @player.send :"go_#{@direction}"
     end
 
     private
@@ -39,12 +41,19 @@ module Strategy
       @direction = relative_direction(2)
     end
 
-    def turn_left
+    def go_left
       @direction = relative_direction(-2)
+      walk
     end
 
     def go_to_target
       @direction = DIRECTIONS.invert[find_target]
+      walk
+      @direction = :north
+    end
+
+    def walk
+      @player.send :"go_#{@direction}"
     end
 
     def find_target
