@@ -1,13 +1,13 @@
- _______ ______ ______  _______ _______ 
+ _______ ______ ______  _______ _______
 |_     _|   __ \   __ \|   |   |     __|
  _|   |_|    __/      <|   |   |    |  |
 |_______|___|  |___|__||_______|_______|
-                                        
+
 ## And the Ampersand of Power!
 
 This month we have a challenge of epic proportions. We are going to hunt the "Ampersand of Power".
 But not ourselves, that would be far too dangerous, health and safety would have a field day. No,
-we're going to build AI walkers to do the job for us. 
+we're going to build AI walkers to do the job for us.
 
 ## Rules
 
@@ -23,7 +23,7 @@ next level is achieved by moving to the down stairs symbol ">".
 ## Installation
 
 1) git clone git@github.com:MrJaba/IpRogue.git
-or 
+or
 copy the files
 
 2) bundle install
