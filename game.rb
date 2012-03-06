@@ -8,6 +8,7 @@ class Game
   def initialize
     @player = Player.new
     @dungeons = Array(1..4)
+    @moves = 0
     next_dungeon
   end
 
@@ -16,9 +17,10 @@ class Game
       next_dungeon if @dungeon.complete?
       @dungeon.render
       update
+      @moves += 1
       sleep(0.01)
     end until finished?
-    puts "FIN!"
+    puts "FIN! You took #{@moves} moves."
   end
 
 private
