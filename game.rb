@@ -18,7 +18,7 @@ class Game
       @dungeon.render
       update
       @moves += 1
-      sleep(0.01)
+      sleep(0.1)
     end until finished?
     puts "FIN! You took #{@moves} moves."
   end
